@@ -1,0 +1,428 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Elena Rostova",
+      "email": "admin@nova.io",
+      "password": "$2a$10$wT8K./h6Xo1QzG4A9C4CdeNqgQ8L0vB0K2a.8bY1Z0V1gY2C3D4E5",
+      "role": "Admin",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
+      "title": "Product Strategist & Admin",
+      "created_at": "2026-09-06T13:04:29.180Z"
+    },
+    {
+      "id": 2,
+      "name": "Alex Chen",
+      "email": "alex@nova.io",
+      "password": "$2a$10$wT8K./h6Xo1QzG4A9C4CdeNqgQ8L0vB0K2a.8bY1Z0V1gY2C3D4E5",
+      "role": "Manager",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+      "title": "Lead Full-Stack Engineer",
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 3,
+      "name": "Sarah Jenkins",
+      "email": "sarah@nova.io",
+      "password": "$2a$10$wT8K./h6Xo1QzG4A9C4CdeNqgQ8L0vB0K2a.8bY1Z0V1gY2C3D4E5",
+      "role": "Member",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+      "title": "Senior UI/UX Designer",
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 4,
+      "name": "David Miller",
+      "email": "david@nova.io",
+      "password": "$2a$10$wT8K./h6Xo1QzG4A9C4CdeNqgQ8L0vB0K2a.8bY1Z0V1gY2C3D4E5",
+      "role": "Member",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150",
+      "title": "DevOps & Cloud Specialist",
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 5,
+      "name": "pavan reddy",
+      "email": "pavanreddybeeram01@gmail.com",
+      "password": "$2a$10$ggC9AWSFqkBJIYaTllyDf.3IDmLyeWnRFXsil66f.VtH4RLS4vZ42",
+      "role": "Admin",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=pavan%20reddy",
+      "title": "Team Contributor",
+      "created_at": "2026-09-06T13:23:10.789Z"
+    },
+    {
+      "id": 6,
+      "name": "team member",
+      "email": "tm01@gmail.com",
+      "password": "$2a$10$Mc3F6WLjMuHqxKm7jWgYi.BqVBm19D8/.OOF4rKUtLP0uWaytk.bO",
+      "role": "Member",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=team%20member",
+      "title": "Team Contributor",
+      "created_at": "2026-09-06T13:24:47.757Z"
+    },
+    {
+      "id": 7,
+      "name": "PM",
+      "email": "PM01@gmail.com",
+      "password": "$2a$10$/AG2eVXcBTbYzzsPiba8KOOQ7dGpG53QHJ6CR0lI.YgDpk6RgWCaK",
+      "role": "Manager",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=PM",
+      "title": "Team Contributor",
+      "created_at": "2026-09-06T13:36:52.522Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "NOVA Mobile Suite 2.0",
+      "description": "Next-gen iOS and Android mobile task execution interface with offline sync capabilities.",
+      "status": "In Progress",
+      "color": "#6366f1",
+      "category": "Engineering",
+      "budget": 45000,
+      "start_date": "2026-08-01",
+      "end_date": "2026-10-30",
+      "created_by": 1,
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 2,
+      "title": "Brand Identity Redesign",
+      "description": "Comprehensive design language refresh, component library guidelines, and marketing site.",
+      "status": "In Review",
+      "color": "#ec4899",
+      "category": "Design",
+      "budget": 18000,
+      "start_date": "2026-07-15",
+      "end_date": "2026-09-15",
+      "created_by": 3,
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 3,
+      "title": "Enterprise Cloud Infra Migration",
+      "description": "Migrating legacy Kubernetes clusters to AWS multi-region serverless infrastructure.",
+      "status": "Planning",
+      "color": "#10b981",
+      "category": "DevOps",
+      "budget": 62000,
+      "start_date": "2026-09-01",
+      "end_date": "2026-12-15",
+      "created_by": 4,
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 4,
+      "title": "WEBSITE",
+      "description": "FULL STACK",
+      "status": "Planning",
+      "color": "#6366f1",
+      "category": "Engineering",
+      "budget": 25000,
+      "start_date": null,
+      "end_date": "2026-11-30",
+      "created_by": 1,
+      "created_at": "2026-09-06T13:07:41.948Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "project_id": 1,
+      "title": "Design Figma Wireframes for Mobile Kanban",
+      "description": "Create responsive touch-friendly wireframes for task columns.",
+      "status": "completed",
+      "priority": "High",
+      "assignee_id": 3,
+      "due_date": "2026-09-10",
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 2,
+      "project_id": 1,
+      "title": "Implement WebSocket Realtime Event Synchronization",
+      "description": "Setup socket connection for instant board updates across teammates.",
+      "status": "in_progress",
+      "priority": "Urgent",
+      "assignee_id": 2,
+      "due_date": "2026-09-18",
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 3,
+      "project_id": 1,
+      "title": "Write React Native Offline Caching Layer",
+      "description": "Use SQLite native bridge to store pending actions when offline.",
+      "status": "todo",
+      "priority": "Medium",
+      "assignee_id": 2,
+      "due_date": "2026-09-25",
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 4,
+      "project_id": 2,
+      "title": "Dark Mode Glassmorphism Token Specification",
+      "description": "Finalize CSS variables for background blurs, borders, and shadows.",
+      "status": "completed",
+      "priority": "High",
+      "assignee_id": 3,
+      "due_date": "2026-08-30",
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 5,
+      "project_id": 2,
+      "title": "Audit Typography and Accessibility Standards",
+      "description": "Ensure WCAG AA contrast compliance across light/dark themes.",
+      "status": "in_review",
+      "priority": "Medium",
+      "assignee_id": 3,
+      "due_date": "2026-09-12",
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 6,
+      "project_id": 3,
+      "title": "Terraform Scripts for Multi-Region AWS VPC",
+      "description": "Write reusable IaC modules for staging and production environments.",
+      "status": "todo",
+      "priority": "Urgent",
+      "assignee_id": 4,
+      "due_date": "2026-09-20",
+      "created_at": "2026-09-06T13:04:29.181Z"
+    },
+    {
+      "id": 7,
+      "project_id": 4,
+      "title": "FRONTEND",
+      "description": "REACT",
+      "status": "todo",
+      "priority": "High",
+      "assignee_id": null,
+      "due_date": "2026-09-30",
+      "created_at": "2026-09-06T13:08:19.496Z"
+    }
+  ],
+  "subtasks": [
+    {
+      "id": 1,
+      "task_id": 1,
+      "title": "Mobile board drawer view",
+      "completed": 1
+    },
+    {
+      "id": 2,
+      "task_id": 1,
+      "title": "Touch gesture swipe columns",
+      "completed": 1
+    },
+    {
+      "id": 3,
+      "task_id": 2,
+      "title": "Client reconnection retry logic",
+      "completed": 1
+    },
+    {
+      "id": 4,
+      "task_id": 2,
+      "title": "Server payload broadcasting test",
+      "completed": 0
+    }
+  ],
+  "task_comments": [
+    {
+      "id": 1,
+      "task_id": 2,
+      "user_id": 3,
+      "comment": "I have updated the design tokens so the WebSocket status badge sparkles nicely when connected!",
+      "created_at": "2026-09-06T08:04:29.181Z"
+    },
+    {
+      "id": 2,
+      "task_id": 2,
+      "user_id": 2,
+      "comment": "Awesome! Testing the connection retry loop right now.",
+      "created_at": "2026-09-06T11:04:29.181Z"
+    },
+    {
+      "id": 3,
+      "task_id": 7,
+      "user_id": 1,
+      "comment": "DO THIS",
+      "created_at": "2026-09-06T13:08:31.380Z"
+    }
+  ],
+  "project_members": [
+    {
+      "project_id": 1,
+      "user_id": 1
+    },
+    {
+      "project_id": 1,
+      "user_id": 2
+    },
+    {
+      "project_id": 1,
+      "user_id": 3
+    },
+    {
+      "project_id": 2,
+      "user_id": 1
+    },
+    {
+      "project_id": 2,
+      "user_id": 3
+    },
+    {
+      "project_id": 3,
+      "user_id": 1
+    },
+    {
+      "project_id": 3,
+      "user_id": 4
+    },
+    {
+      "project_id": 4,
+      "user_id": 1
+    }
+  ],
+  "activity_logs": [
+    {
+      "id": 17,
+      "user_id": 5,
+      "project_id": null,
+      "action": "Logged in as Admin",
+      "details": "",
+      "created_at": "2026-09-07T16:26:47.933Z"
+    },
+    {
+      "id": 16,
+      "user_id": 1,
+      "project_id": null,
+      "action": "Logged in as Admin",
+      "details": "",
+      "created_at": "2026-09-06T13:39:29.289Z"
+    },
+    {
+      "id": 15,
+      "user_id": 7,
+      "project_id": null,
+      "action": "Account created with role Manager",
+      "details": "",
+      "created_at": "2026-09-06T13:36:52.523Z"
+    },
+    {
+      "id": 14,
+      "user_id": 5,
+      "project_id": null,
+      "action": "Logged in as Admin",
+      "details": "",
+      "created_at": "2026-09-06T13:30:28.288Z"
+    },
+    {
+      "id": 13,
+      "user_id": 3,
+      "project_id": null,
+      "action": "Task column moved",
+      "details": "",
+      "created_at": "2026-09-06T13:28:46.218Z"
+    },
+    {
+      "id": 12,
+      "user_id": 3,
+      "project_id": null,
+      "action": "Task column moved",
+      "details": "",
+      "created_at": "2026-09-06T13:28:44.287Z"
+    },
+    {
+      "id": 11,
+      "user_id": 3,
+      "project_id": null,
+      "action": "Logged in as Member",
+      "details": "",
+      "created_at": "2026-09-06T13:28:03.027Z"
+    },
+    {
+      "id": 10,
+      "user_id": 5,
+      "project_id": null,
+      "action": "Logged in as Admin",
+      "details": "",
+      "created_at": "2026-09-06T13:26:22.343Z"
+    },
+    {
+      "id": 9,
+      "user_id": 6,
+      "project_id": null,
+      "action": "Account created with role Member",
+      "details": "",
+      "created_at": "2026-09-06T13:24:47.758Z"
+    },
+    {
+      "id": 8,
+      "user_id": 5,
+      "project_id": null,
+      "action": "Logged in as Admin",
+      "details": "",
+      "created_at": "2026-09-06T13:24:19.473Z"
+    },
+    {
+      "id": 7,
+      "user_id": 5,
+      "project_id": null,
+      "action": "Account created with role Admin",
+      "details": "",
+      "created_at": "2026-09-06T13:23:10.790Z"
+    },
+    {
+      "id": 6,
+      "user_id": 1,
+      "project_id": 4,
+      "action": "Created task: \"FRONTEND\"",
+      "details": "Priority: High, Status: todo",
+      "created_at": "2026-09-06T13:08:19.497Z"
+    },
+    {
+      "id": 5,
+      "user_id": 1,
+      "project_id": 4,
+      "action": "Created project: \"WEBSITE\"",
+      "details": "Category: Engineering, Status: Planning",
+      "created_at": "2026-09-06T13:07:41.950Z"
+    },
+    {
+      "id": 4,
+      "user_id": 1,
+      "project_id": null,
+      "action": "Logged in as Admin",
+      "details": "",
+      "created_at": "2026-09-06T13:05:35.096Z"
+    },
+    {
+      "id": 1,
+      "user_id": 1,
+      "project_id": 1,
+      "action": "Created project \"NOVA Mobile Suite 2.0\"",
+      "details": "Set budget to $45,000",
+      "created_at": "2026-09-03T13:04:29.181Z"
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "project_id": 1,
+      "action": "Completed task \"Design Figma Wireframes for Mobile Kanban\"",
+      "details": "Task marked completed",
+      "created_at": "2026-09-04T13:04:29.181Z"
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "project_id": 1,
+      "action": "Moved task \"Implement WebSocket Realtime Event Synchronization\" to In Progress",
+      "details": "Assigned to Alex Chen",
+      "created_at": "2026-09-05T13:04:29.181Z"
+    }
+  ]
+}
