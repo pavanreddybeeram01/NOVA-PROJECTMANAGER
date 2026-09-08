@@ -1,4 +1,14 @@
 const { useState, useEffect } = React;
+const API_BASE = 'https://nova-projectmanager.onrender.com';
+
+const originalFetch = window.fetch;
+
+window.fetch = (url, options) => {
+  if (typeof url === 'string' && url.startsWith('/api/')) {
+    url = `${API_BASE}${url}`;
+  }
+  return originalFetch(url, options);
+};
 
 const INITIAL_TEAM = [
   { id: 1, name: 'Elena Rostova', role: 'Admin', title: 'Product Strategist & Admin', avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150' },
@@ -92,6 +102,8 @@ function App() {
   });
 
   // API Call Helpers
+  const API_BASE = 'https://nova-projectmanager.onrender.com';
+  
   const getHeaders = () => ({
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`
