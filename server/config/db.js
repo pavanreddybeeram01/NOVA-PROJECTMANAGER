@@ -74,8 +74,6 @@ function loadLocalStore() {
   }
 }
 
-loadLocalStore();
-
 let mysqlPool = null;
 let activeMode = 'LOCAL';
 if (process.env.USE_MYSQL !== 'true') {
