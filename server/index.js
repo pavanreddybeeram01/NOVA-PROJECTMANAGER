@@ -42,19 +42,33 @@ app.use(express.static(path.join(__dirname, '..', 'client')));
 // SPA Catch-all Route
 app.get('*', (req, res) => {
   if (req.path.startsWith('/api')) {
-    return res.status(404).json({ success: false, message: 'API Endpoint Not Found' });
+    return res.status(404).json({
+      success: false,
+      message: 'API Endpoint Not Found'
+    });
   }
+
   res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
 });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Unhandled Error:', err.stack);
-  res.status(500).json({ success: false, message: 'Internal Server Error' });
+
+  res.status(500).json({
+    success: false,
+    message: 'Internal Server Error'
+  });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 NOVA Server is running on http://localhost:${PORT}`);
-  console.log(`📊 Mode: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🗄️ Database Engine: ${db.getMode()}`);
-});
+// Start server only when running normally
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🚀 NOVA Server is running on http://localhost:${PORT}`);
+    console.log(`📊 Mode: ${process.env.NODE_ENV || 'development'}`);
+    console.log(`🗄️ Database Engine: ${db.getMode()}`);
+  });
+}
+
+// Export Express app for Netlify Functions
+module.exports = app;
