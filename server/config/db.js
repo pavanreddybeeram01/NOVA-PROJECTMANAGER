@@ -117,6 +117,7 @@ const dbReady = initPool();
 // Generic query proxy interface
 const db = {
   getMode: () => activeMode,
+  waitReady: () => dbReady,
   saveStore: saveLocalStore,
   getDataStore: () => localData,
   execute: async (sql, params = []) => {
