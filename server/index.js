@@ -27,6 +27,8 @@ app.use('/api/stats', statsRoutes);
 
 // System Health Check
 app.get('/api/health', (req, res) => {
+  await db.waitReady();
+  
   res.json({
     status: 'online',
     app: 'NOVA — Team Productivity Platform',
