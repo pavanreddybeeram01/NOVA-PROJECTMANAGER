@@ -91,7 +91,6 @@ async function initPool() {
         ssl: {
           rejectUnauthorized: false
         },
-        family: 4,
         waitForConnections: true,
         connectionLimit: 10,
         queueLimit: 0
