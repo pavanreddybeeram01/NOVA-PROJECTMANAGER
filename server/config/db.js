@@ -112,7 +112,7 @@ async function initPool() {
   }
 }
 
-initPool();
+const dbReady = initPool();
 
 // Generic query proxy interface
 const db = {
@@ -120,6 +120,8 @@ const db = {
   saveStore: saveLocalStore,
   getDataStore: () => localData,
   execute: async (sql, params = []) => {
+    await dbReady;
+    
     if (activeMode === 'MYSQL' && mysqlPool) {
       return mysqlPool.execute(sql, params);
     }
