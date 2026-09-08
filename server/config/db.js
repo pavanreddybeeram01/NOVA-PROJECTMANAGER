@@ -78,6 +78,9 @@ loadLocalStore();
 
 let mysqlPool = null;
 let activeMode = 'LOCAL';
+if (process.env.USE_MYSQL !== 'true') {
+  loadLocalStore();
+}
 
 async function initPool() {
   if (process.env.USE_MYSQL === 'true') {
