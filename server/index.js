@@ -26,7 +26,7 @@ app.use('/api/team', teamRoutes);
 app.use('/api/stats', statsRoutes);
 
 // System Health Check
-app.get('/api/health', (req, res) => {
+app.get('/api/health', async (req, res) => {
   await db.waitReady();
   
   res.json({
