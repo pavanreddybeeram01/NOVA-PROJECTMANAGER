@@ -101,6 +101,7 @@ async function initPool() {
       activeMode = 'MYSQL';
       console.log(' Successfully connected to MySQL database engine.');
     } catch (err) {
+      console.error('MYSQL CONNECTION ERROR:', err);
       console.warn(' MySQL connection unavailable. Switching to embedded data repository.');
       activeMode = 'LOCAL';
     }
