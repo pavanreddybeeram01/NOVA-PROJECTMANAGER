@@ -1,10 +1,13 @@
 -- NOVA — Team Productivity Platform
 -- MySQL Database Schema
 
-CREATE DATABASE IF NOT EXISTS `nova_db`;
+-- Select the NOVA database
 USE `nova_db`;
 
--- Users Table
+-- ============================================
+-- USERS TABLE
+-- ============================================
+
 CREATE TABLE IF NOT EXISTS `users` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `name` VARCHAR(100) NOT NULL,
@@ -16,7 +19,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Projects Table
+
+-- ============================================
+-- PROJECTS TABLE
+-- ============================================
+
 CREATE TABLE IF NOT EXISTS `projects` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `title` VARCHAR(150) NOT NULL,
@@ -27,69 +34,127 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `budget` DECIMAL(10,2) DEFAULT 0.00,
   `start_date` DATE DEFAULT NULL,
   `end_date` DATE DEFAULT NULL,
-  `created_by` INT,
+  `created_by` INT DEFAULT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (`created_by`) REFERENCES `users`(`id`) ON DELETE SET NULL
+
+  FOREIGN KEY (`created_by`)
+    REFERENCES `users`(`id`)
+    ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Tasks Table
+
+-- ============================================
+-- TASKS TABLE
+-- ============================================
+
 CREATE TABLE IF NOT EXISTS `tasks` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `project_id` INT NOT NULL,
   `title` VARCHAR(200) NOT NULL,
   `description` TEXT,
-  `status` ENUM('todo', 'in_progress', 'in_review', 'completed') DEFAULT 'todo',
-  `priority` ENUM('Low', 'Medium', 'High', 'Urgent') DEFAULT 'Medium',
+  `status` ENUM(
+    'todo',
+    'in_progress',
+    'in_review',
+    'completed'
+  ) DEFAULT 'todo',
+  `priority` ENUM(
+    'Low',
+    'Medium',
+    'High',
+    'Urgent'
+  ) DEFAULT 'Medium',
   `assignee_id` INT DEFAULT NULL,
   `due_date` DATE DEFAULT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (`project_id`) REFERENCES `projects`(`id`) ON DELETE CASCADE,
-  FOREIGN KEY (`assignee_id`) REFERENCES `users`(`id`) ON DELETE SET NULL
+
+  FOREIGN KEY (`project_id`)
+    REFERENCES `projects`(`id`)
+    ON DELETE CASCADE,
+
+  FOREIGN KEY (`assignee_id`)
+    REFERENCES `users`(`id`)
+    ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Subtasks Table
+
+-- ============================================
+-- SUBTASKS TABLE
+-- ============================================
+
 CREATE TABLE IF NOT EXISTS `subtasks` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `task_id` INT NOT NULL,
   `title` VARCHAR(255) NOT NULL,
   `completed` TINYINT(1) DEFAULT 0,
-  FOREIGN KEY (`task_id`) REFERENCES `tasks`(`id`) ON DELETE CASCADE
+
+  FOREIGN KEY (`task_id`)
+    REFERENCES `tasks`(`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Task Comments Table
+
+-- ============================================
+-- TASK COMMENTS TABLE
+-- ============================================
+
 CREATE TABLE IF NOT EXISTS `task_comments` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `task_id` INT NOT NULL,
   `user_id` INT NOT NULL,
   `comment` TEXT NOT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (`task_id`) REFERENCES `tasks`(`id`) ON DELETE CASCADE,
-  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+
+  FOREIGN KEY (`task_id`)
+    REFERENCES `tasks`(`id`)
+    ON DELETE CASCADE,
+
+  FOREIGN KEY (`user_id`)
+    REFERENCES `users`(`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Project Members Junction Table
+
+-- ============================================
+-- PROJECT MEMBERS TABLE
+-- ============================================
+
 CREATE TABLE IF NOT EXISTS `project_members` (
   `project_id` INT NOT NULL,
   `user_id` INT NOT NULL,
+
   PRIMARY KEY (`project_id`, `user_id`),
-  FOREIGN KEY (`project_id`) REFERENCES `projects`(`id`) ON DELETE CASCADE,
-  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+
+  FOREIGN KEY (`project_id`)
+    REFERENCES `projects`(`id`)
+    ON DELETE CASCADE,
+
+  FOREIGN KEY (`user_id`)
+    REFERENCES `users`(`id`)
+    ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Activity Logs Table
+
+-- ============================================
+-- ACTIVITY LOGS TABLE
+-- ============================================
+
 CREATE TABLE IF NOT EXISTS `activity_logs` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `user_id` INT,
+  `user_id` INT DEFAULT NULL,
   `project_id` INT DEFAULT NULL,
   `action` VARCHAR(255) NOT NULL,
   `details` TEXT,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE SET NULL
+
+  FOREIGN KEY (`user_id`)
+    REFERENCES `users`(`id`)
+    ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Initial Seed Data Notice:
--- Default demo accounts:
--- admin@nova.io (password: admin123)
--- alex@nova.io (password: alex123)
--- sarah@nova.io (password: sarah123)
--- david@nova.io (password: david123)
+
+-- ============================================
+-- CHECK TABLES
+-- ============================================
+
+SHOW TABLES;
